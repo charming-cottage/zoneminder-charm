@@ -1,6 +1,8 @@
 Charmed ZoneMinder
 ##################
 
+|test-status-badge|_
+
 Overview
 ========
 
@@ -69,4 +71,6 @@ following best practice guidelines.
 .. _`HACKING`: ./HACKING.rst
 .. _`juju`: https://juju.is/
 .. _`Juju SDK docs`: https://juju.is/docs/sdk
+.. |test-status-badge| image:: https://github.com/charming-cottage/zoneminder-charm/actions/workflows/tests.yaml/badge.svg?branch=main
+.. _test-status-badge: https://github.com/charming-cottage/zoneminder-charm/actions/workflows/tests.yaml
 .. _`ZoneMinder`: https://zoneminder.com/
