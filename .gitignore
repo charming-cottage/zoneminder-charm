@@ -1,0 +1,10 @@
+*.charm
+*.py[cod]
+.coverage
+.envrc
+.idea
+.tox/
+.vscode/
+__pycache__/
+build/
+venv/

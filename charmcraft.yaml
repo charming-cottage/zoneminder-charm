@@ -1,0 +1,34 @@
+name: zoneminder
+type: charm
+title: ZoneMinder
+summary: A charmed version of ZoneMinder
+description: |
+  A full-featured, open source, state-of-the-art video surveillance software system.
+
+  Monitor your home, office, or wherever you want. Using off the shelf hardware with
+  any camera, you can design a system as large or as small as you need.
+links:
+  documentation: https://zoneminder.readthedocs.io/en/stable/
+  issues:
+    - https://github.com/ZoneMinder/ZoneMinder/issues
+    - https://github.com/charming-cottage/zoneminder-charm/issues
+  source:
+    - https://github.com/ZoneMinder/zoneminder
+    - https://github.com/charming-cottage/zoneminder-charm
+  website:
+    - https://zoneminder.com/
+assumes:
+  - juju>=3.1
+bases:
+  - build-on:
+    - name: ubuntu
+      channel: "22.04"
+    run-on:
+    - name: ubuntu
+      channel: "22.04"
+config:
+  options:
+    version:
+      description: zoneminder version
+      default: "1.36"
+      type: string

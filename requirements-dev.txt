@@ -1,0 +1,8 @@
+black~=24.1
+codespell~=2.2
+coverage~=7.4
+ops~=2.10
+pytest~=8.0
+ruff~=0.2
+sphinx-lint~=0.9
+tox~=4.12

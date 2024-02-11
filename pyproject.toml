@@ -1,0 +1,4 @@
+[tool.codespell]
+skip = ".tox,.git,build,.*_cache,__pycache__,*.tar,*.charm,*.snap,*.png,./node_modules,./docs/_build,.direnv,.venv,venv,.vscode"
+quiet-level = 3
+check-filenames = true
