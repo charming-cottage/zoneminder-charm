@@ -16,11 +16,17 @@ Checklist
 =========
 
 ☐ user-defined apache2 port
+
 ☐ user-defined ``/etc/zm/conf.d/03-custom.conf``
+
 ☐ preserve ``/etc/zm/conf.d/03-custom.conf`` (peer relation data bag)
+
 ☐ expose camera stream ports
+
 ☐ license
+
 ☐ unit tests
+
 ☐ publish charm to charmhub
 
 Requirements
