@@ -1,0 +1,48 @@
+name: build
+on:
+  push:
+    branches:
+      - "main"
+      - "feature/*"
+      - "hotfix/*"
+      - "release/*"
+      - "renovate/*"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup environment
+        run: |
+          echo "::group::Begin snap install"
+          sudo snap install charmcraft --channel=latest/stable --classic --no-wait
+          echo "::endgroup::"
+          echo "::group::pip install"
+          python -m pip install 'tox>=4.6'
+          echo "::endgroup::"
+          echo "::group::Configure LXD"
+          sudo groupadd --force --system lxd
+          sudo usermod --append --groups lxd $USER
+          sudo snap refresh lxd --channel=latest/stable
+          sudo snap start lxd
+          sudo lxd waitready --timeout=30
+          sudo lxd init --auto
+          # iptables calls from https://github.com/canonical/setup-lxd/blob/main/action.yml
+          sudo iptables -I DOCKER-USER -i lxdbr0 -j ACCEPT
+          sudo iptables -I DOCKER-USER -o lxdbr0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+          echo "::endgroup::"
+          echo "::group::Wait for snap to complete"
+          snap watch --last=install
+          echo "::endgroup::"
+      - name: Build charm
+        run: sg lxd -c "charmcraft pack --verbosity=trace"
+      - name: Upload charm
+        uses: actions/upload-artifact@v4
+        with:
+          name: charm
+          path: zoneminder*.charm
