@@ -40,7 +40,7 @@ Usage
 =====
 
 The Zoneminder charm is not yet available on charmhub, so can be downloaded
-from the github release page or built with `charmcraft`_
+from the `GitHub Releases page`_ or built with `charmcraft`_
 
 .. code-block:: shell
 
@@ -68,6 +68,7 @@ Contributions are encouraged! Please see the `HACKING`_ doc and
 following best practice guidelines.
 
 .. _`charmcraft`: https://github.com/canonical/charmcraft
+.. _`GitHub Releases page`: https://github.com/charming-cottage/zoneminder-charm/releases
 .. _`HACKING`: ./HACKING.rst
 .. _`juju`: https://juju.is/
 .. _`Juju SDK docs`: https://juju.is/docs/sdk
